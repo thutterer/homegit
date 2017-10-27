@@ -27,4 +27,5 @@ Whenever you want to make yourself at home at a new place, set up the alias and 
 ```bash
 # replace the repository URL with yours
 git clone https://github.com/thutterer/homegit.git ~/.homegit
+mv ~/.homegit/.gitignore ~
 ```
