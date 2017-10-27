@@ -1,0 +1,22 @@
+[core]
+  pager = less
+
+[alias]
+  co = checkout
+  st = status
+  ci = commit
+  cp = cherry-pick
+  br = branch
+  hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+
+[push]
+  default = current
+
+[credential]
+  helper = cache --timeout=1800
+
+[color]
+  ui = auto
+[user]
+  name = Thomas Hutterer
+  email = thutterer@suse.de
