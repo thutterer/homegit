@@ -1,0 +1,2 @@
+alias homegit="GIT_DIR=~/.homegit/.git GIT_WORK_TREE=~ git"
+
