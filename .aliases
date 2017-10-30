@@ -1,2 +1,6 @@
 alias homegit="GIT_DIR=~/.homegit/.git GIT_WORK_TREE=~ git"
 
+alias myip="ip -4 -o a | awk '{ print \$4 }' | grep -v '^127\|^172' | rev | cut -c 4- | rev"
+alias mypath='echo "${PATH//:/\n}"'
+
+alias webserver='python -m SimpleHTTPServer 8008'
