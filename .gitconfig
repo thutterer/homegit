@@ -3,20 +3,23 @@
 
 [alias]
   co = checkout
-  st = status
+  st = status --short
   ci = commit
   cp = cherry-pick
   br = branch
-  hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+  lg = log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+  ls = !git --no-pager log --oneline master..HEAD
+  news = shortlog -n --after='2 weeks ago'
 
 [push]
   default = current
 
 [credential]
-  helper = cache --timeout=1800
+  helper = cache --timeout=300
 
 [color]
   ui = auto
+
 [user]
   name = Thomas Hutterer
   email = thutterer@suse.de
