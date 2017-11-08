@@ -1,0 +1,10 @@
+packages: [
+  "advanced-open-file"
+  "atom-ctags"
+  "autocomplete-ruby"
+  "cucumber"
+  "language-gettext"
+  "language-haml"
+  "package-sync"
+  "toggle-quotes"
+]

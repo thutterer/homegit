@@ -1,0 +1,28 @@
+"*":
+  "autocomplete-ruby":
+    rsensePath: "/home/tom/.rvm/gems/ruby-2.4.1@atom/bin/rsense"
+  autosave:
+    enabled: true
+  core:
+    autoHideMenuBar: true
+    closeDeletedFileTabs: true
+    disabledPackages: [
+      "autocomplete-ruby"
+      "symbols-view"
+    ]
+    restorePreviousWindowsOnStart: "no"
+    telemetryConsent: "no"
+  editor: {}
+  "package-sync":
+    createOnChange: true
+    forceOverwrite: true
+  welcome:
+    showOnStartup: false
+".erb.html.text":
+  editor:
+    showIndentGuide: true
+    showInvisibles: false
+".ruby.source":
+  editor:
+    showIndentGuide: true
+    showInvisibles: false
