@@ -2,11 +2,14 @@
   pager = less
 
 [alias]
-  co = checkout
-  st = status --short
-  ci = commit
-  cp = cherry-pick
   br = branch
+  ci = commit
+  co = checkout
+  cp = cherry-pick
+  df = diff
+  pl = pull
+  pu = push
+  st = status --short
   lg = log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
   ls = !git --no-pager log --oneline master..HEAD
   news = shortlog -n --after='2 weeks ago'
