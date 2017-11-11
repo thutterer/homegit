@@ -1,4 +1,6 @@
 "*":
+  "autocomplete-plus":
+    confirmCompletion: "tab always, enter when suggestion explicitly selected"
   "autocomplete-ruby":
     rsensePath: "/home/tom/.rvm/gems/ruby-2.4.1@atom/bin/rsense"
   autosave:
@@ -9,6 +11,8 @@
     disabledPackages: [
       "autocomplete-ruby"
       "symbols-view"
+      "metrics"
+      "welcome"
     ]
     restorePreviousWindowsOnStart: "no"
     telemetryConsent: "no"
@@ -18,6 +22,8 @@
     forceOverwrite: true
   welcome:
     showOnStartup: false
+  whitespace:
+    ignoreWhitespaceOnCurrentLine: false
 ".erb.html.text":
   editor:
     showIndentGuide: true
