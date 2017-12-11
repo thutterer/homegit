@@ -1,10 +1,17 @@
 packages: [
   "advanced-open-file"
+  "atom-beautify"
   "atom-ctags"
   "autocomplete-ruby"
   "cucumber"
+  "file-icons"
+  "gemfile-gutter"
   "language-gettext"
   "language-haml"
+  "language-patch"
+  "language-terraform"
+  "open-terminal-here"
   "package-sync"
+  "ruby-block"
   "toggle-quotes"
 ]

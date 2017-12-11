@@ -9,17 +9,27 @@
     autoHideMenuBar: true
     closeDeletedFileTabs: true
     disabledPackages: [
-      "autocomplete-ruby"
       "symbols-view"
       "metrics"
       "welcome"
+      "atom-ctags"
+      "autocomplete-ruby"
     ]
+    projectHome: "/home/tom/code"
     restorePreviousWindowsOnStart: "no"
     telemetryConsent: "no"
-  editor: {}
+  editor:
+    fontSize: 15
+  "file-icons":
+    onChanges: true
+  "open-terminal-here":
+    command: "gnome-terminal"
   "package-sync":
     createOnChange: true
     forceOverwrite: true
+  "ruby-block":
+    highlightLineNumber: true
+    showBottomPanel: false
   welcome:
     showOnStartup: false
   whitespace:
