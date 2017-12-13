@@ -1,4 +1,6 @@
 "*":
+  "atom-updater-linux":
+    pkgType: "RedHat"
   "autocomplete-plus":
     confirmCompletion: "tab always, enter when suggestion explicitly selected"
   "autocomplete-ruby":
@@ -15,6 +17,9 @@
       "atom-ctags"
       "autocomplete-ruby"
     ]
+    packagesWithKeymapsDisabled: [
+      "atom-updater-linux"
+    ]
     projectHome: "/home/tom/code"
     restorePreviousWindowsOnStart: "no"
     telemetryConsent: "no"
@@ -22,6 +27,8 @@
     fontSize: 15
   "file-icons":
     onChanges: true
+  "highlight-selected":
+    minimumLength: 3
   "open-terminal-here":
     command: "gnome-terminal"
   "package-sync":
