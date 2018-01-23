@@ -7,7 +7,7 @@
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="refined"
+ZSH_THEME="hut"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -80,3 +80,12 @@ fi
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 source ~/.aliases
+
+# Allow brackets for rake tasks without escaping them
+alias rake='noglob rake' 
+
+# Insert first wird with Alt-Comma
+# (overwrites default behavior)
+insert-first-word () { zle insert-last-word -- -1 1 }
+zle -N insert-first-word
+bindkey '^[,' insert-first-word
