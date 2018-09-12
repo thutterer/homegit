@@ -14,7 +14,7 @@
   ls = !git --no-pager log --oneline master..HEAD
   news = shortlog -n --after='2 weeks ago'
   cleanup = "!git branch --merged | egrep -v '(^\\*|master|dev)' | xargs -r git branch -d"
-  branches = "!git for-each-ref --sort='-committerdate' --format='%(refname)%09%(committerdate)' refs/heads | sed -e 's-refs/heads/--' | head -n 20 | column -t"
+  branches = "!~/bin/git_branches"
 
 [push]
   default = current

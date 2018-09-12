@@ -1,0 +1,5 @@
+#!/bin/bash
+branches=($(git for-each-ref --sort='-committerdate' --format='%(refname)' refs/heads | sed -e 's-refs/heads/--' | head -n 100))
+branch=`dialog --clear --backtitle "Backtitle here" --title "Title here" --no-items --menu "Choose one of the following options:" 0 50 20 ${branches[*]}  3>&1 1>&2 2>&3`
+git co $branch
+
