@@ -4,3 +4,5 @@ alias myip="ip -4 -o a | awk '{ print \$4 }' | grep -v '^127\|^172' | rev | cut 
 alias mypath='echo "${PATH//:/\n}"'
 
 alias webserver='ruby -run -ehttpd . -p8000'
+
+alias o=xdg-open
