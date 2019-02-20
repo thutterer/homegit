@@ -47,11 +47,14 @@ ZSH_THEME="hut"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+MAGIC_ENTER_GIT_COMMAND='git st; git ls'
+MAGIC_ENTER_OTHER_COMMAND='ll'
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(colorize git zsh-syntax-highlighting)
+plugins=(colorize git magic-enter zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
