@@ -51,7 +51,7 @@ ZSH_THEME="hut"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting)
+plugins=(colorize git zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -84,7 +84,7 @@ source ~/.aliases
 # Allow brackets for rake tasks without escaping them
 alias rake='noglob rake' 
 
-# Insert first wird with Alt-Comma
+# Insert first word with Alt-Comma
 # (overwrites default behavior)
 insert-first-word () { zle insert-last-word -- -1 1 }
 zle -N insert-first-word

@@ -6,3 +6,6 @@ alias mypath='echo "${PATH//:/\n}"'
 alias webserver='ruby -run -ehttpd . -p8000'
 
 alias o=xdg-open
+
+alias cat=ccat # colorize zsh plugin
+alias less='f() { ccat $1 | less };f'
