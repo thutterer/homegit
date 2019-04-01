@@ -54,7 +54,7 @@ MAGIC_ENTER_OTHER_COMMAND='ll'
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(colorize git magic-enter zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(colorize git magic-enter zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
