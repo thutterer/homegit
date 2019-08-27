@@ -5,6 +5,9 @@
 # wallpaper
 exec --no-startup-id nitrogen --restore
 
+# mate-panel (instead of i3 bar)
+exec --no-startup-id mate-panel
+
 # window compositor
 exec --no-startup-id compton --config ~/.i3/compton.conf
 
@@ -16,6 +19,9 @@ exec --no-startup-id nm-applet
 
 # audio tray icon
 exec --no-startup-id mate-volume-control-applet
+
+# battery applet
+exec --no-startup-id mate-power-manager
 
 # monitor shutdown
 exec --no-startup-id xset dpms 300 600 900
@@ -31,14 +37,18 @@ bindsym $mod+Shift+p exec i3lock -c 000000
 # take screenshot
 bindsym Print exec scrot -s -e 'mv $f ~/Pictures/Screenshots/'
 
+# take GIF screencast
+bindsym $mod+Print exec ~/bin/screencast.sh
+bindsym $mod+Shift+Print exec killall ffmpeg
+
 # font for window titles
-font pango:DejaVu Sans Mono 8
+font pango:Source Code Pro Bold 12
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec mate-terminal # i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -80,6 +90,9 @@ bindsym $mod+e layout toggle split
 
 # default layout
 workspace_layout tabbed
+
+# make a window show on all workspaces
+bindsym $mod+t sticky toggle
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -166,23 +179,23 @@ client.urgent #2f343a #900000 #ffffff #900000
 hide_edge_borders both
 
 # bar config
-bar {
-  position bottom
-
-  status_command py3status -c ~/.config/i3/i3status.conf
-
-  font pango:DejaVu Sans Mono Bold 9
-
-  colors {
-    separator  #000000
-    background #000000
-    statusline #bbbbbb
-    focused_workspace #000000 #ffffff #000000
-    active_workspace #333333 #5f676a #ffffff
-    inactive_workspace #000000 #000000 #888888
-    urgent_workspace #2f343a #900000 #ffffff
-  }
-}
+# bar {
+#   position bottom
+# 
+#   status_command py3status -c ~/.config/i3/i3status.conf
+# 
+#   font pango:DejaVu Sans Mono Bold 9
+# 
+#   colors {
+#     separator  #000000
+#     background #000000
+#     statusline #bbbbbb
+#     focused_workspace #000000 #ffffff #000000
+#     active_workspace #333333 #5f676a #ffffff
+#     inactive_workspace #000000 #000000 #888888
+#     urgent_workspace #2f343a #900000 #ffffff
+#   }
+# }
 
 # volume keys
 bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume 0 '+5%'
