@@ -1,7 +1,8 @@
 alias homegit="GIT_DIR=~/.homegit/.git GIT_WORK_TREE=~ git"
 
-alias vimrc="vim ~/.vimrc"
 alias aliases="vim ~/.aliases && source ~/.aliases"
+alias vimrc="vim ~/.vimrc"
+alias zshrc="vim ~/.zshrc && source ~/.zshrc"
 
 alias myip="ip -4 -o a | awk '{ print \$4 }' | grep -v '^127\|^172' | rev | cut -c 4- | rev"
 alias mypath='echo "${PATH//:/\n}"'
