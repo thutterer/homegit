@@ -12,13 +12,12 @@ set path+=**
 
 " Display all matching files when we tab complete
 set wildmenu
+set wildmode=longest:full,full
 
 " Always show current position
 set ruler
 
-colorscheme desert
-set background=dark
-
+" Display line numbers relative to current line
 set relativenumber
 
 set noswapfile
@@ -55,11 +54,21 @@ set smarttab
 set shiftwidth=2
 set tabstop=2
 
+" Retain visual selection after indenting
+vnoremap > >gv
+vnoremap < <gv
+
+" Sane behavior for tab key
+nnoremap <Tab> >>_
+nnoremap <S-Tab> <<_
+vmap <Tab> >
+vmap <S-Tab> <
+
 " Always show the status line
 set laststatus=2
 
-" Format the status line
-set statusline=\ %F%m%r%h\ %w\ \ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
+" Hide mode (because lightline shows it)
+set noshowmode
 
 " Faster way to move between windows
 map <C-j> <C-W>j
@@ -67,7 +76,27 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
+" Configure netrw (built-in file browser plugin)
+let g:netrw_banner=0
+let g:netrw_liststyle = 3 " tree view
+
 " Disable modeline completly for security reasons
 set modelines=0
 set nomodeline
+
+" Set color scheme (from plugin) and background
+colorscheme darkblue
+set background=dark
+
+" Install plugin manager if missing
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Enable plugins
+call plug#begin()
+Plug 'itchyny/lightline.vim'
+call plug#end()
 
