@@ -85,7 +85,7 @@ set modelines=0
 set nomodeline
 
 " Set color scheme (from plugin) and background
-colorscheme darkblue
+colorscheme elflord
 set background=dark
 
 " Install plugin manager if missing
