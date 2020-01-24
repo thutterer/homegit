@@ -38,6 +38,9 @@ set hlsearch
 " Show matching results already when typing
 set incsearch
 
+" Always keep some screen lines above and below the cursor
+set scrolloff=10
+
 " Show matching brackets when text indicator is over them
 set showmatch
 
@@ -78,7 +81,8 @@ map <C-l> <C-W>l
 
 " Configure netrw (built-in file browser plugin)
 let g:netrw_banner=0
-let g:netrw_liststyle = 3 " tree view
+let g:netrw_liststyle=3 " tree view
+let g:netrw_altv=1      " open splits to the right
 
 " Disable modeline completly for security reasons
 set modelines=0
