@@ -67,6 +67,11 @@ nnoremap <S-Tab> <<_
 vmap <Tab> >
 vmap <S-Tab> <
 
+" Setup tabs on F9-12
+nnoremap <F9> :tabnew<CR>
+nnoremap <F10> :tabn<CR>
+nnoremap <F11> :tabp<CR>
+nnoremap <F12> :tabnew ~/.vimrc<CR>
 " Always show the status line
 set laststatus=2
 
@@ -102,5 +107,12 @@ endif
 " Enable plugins
 call plug#begin()
 Plug 'itchyny/lightline.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
+" Fuzzy find with fzf
+nnoremap <C-p> :Files<CR>
+
+" Set <space> as leader key
+"let mapleader = " "
