@@ -84,10 +84,9 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-" Configure netrw (built-in file browser plugin)
-let g:netrw_banner=0
-let g:netrw_liststyle=3 " tree view
-let g:netrw_altv=1      " open splits to the right
+" Splits are open in reading direction (right then below)
+set splitright
+set splitbelow
 
 " Disable modeline completly for security reasons
 set modelines=0
@@ -109,6 +108,8 @@ call plug#begin()
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-vinegar'
 call plug#end()
 
 " Fuzzy find with fzf
