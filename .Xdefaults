@@ -1,6 +1,0 @@
-URxvt.saveLines: 10000
-URxvt.scrollBar: false
-URxvt.foreground: white
-URxvt.background: black
-URxvt.font: xft:DejaVu Sans Mono:pixelsize=12
-
