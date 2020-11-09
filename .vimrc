@@ -39,7 +39,7 @@ set hlsearch
 set incsearch
 
 " Always keep some screen lines above and below the cursor
-set scrolloff=10
+set scrolloff=5
 
 " Show matching brackets when text indicator is over them
 set showmatch
@@ -72,6 +72,7 @@ nnoremap <F9> :tabnew<CR>
 nnoremap <F10> :tabn<CR>
 nnoremap <F11> :tabp<CR>
 nnoremap <F12> :tabnew ~/.vimrc<CR>
+
 " Always show the status line
 set laststatus=2
 
@@ -92,10 +93,6 @@ set splitbelow
 set modelines=0
 set nomodeline
 
-" Set color scheme (from plugin) and background
-colorscheme elflord
-set background=dark
-
 " Install plugin manager if missing
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -105,15 +102,25 @@ endif
 
 " Enable plugins
 call plug#begin()
+Plug 'noahfrederick/vim-noctu'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-vinegar'
 call plug#end()
+
+" Set color scheme (from plugin) and background
+colorscheme noctu
+"set background=dark
 
 " Fuzzy find with fzf
 nnoremap <C-p> :Files<CR>
 
 " Set <space> as leader key
 "let mapleader = " "
+
+" Folding (`za`)
+set foldmethod=syntax
+set foldlevel=10
+set foldtext=getline(v:foldstart)
+set fillchars= 
