@@ -30,7 +30,6 @@
 
 [user]
   name = Thomas Hutterer
-  email = thutterer@suse.de
 
 [rebase]
   autoStash = true
