@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Simple screen recorder.
+#
+# Requires:
+which ffmpeg || { echo "ffmpeg not found."; exit 1; }
+which slop || { echo "slop not found."; exit 1; }
+
+# Records MP4 by default.
+# Run `record gif` etc. for other formats.
+
+[ -z "$1" ] && FORMAT="mp4" || FORMAT="$1"
+FILENAME="$HOME/Videos/recording_$(date +%s).$FORMAT"
+
+
+echo "Select a window or area to record:"
+slop=$(slop -lf "%x %y %w %h %g %i") || exit 1
+read -r X Y W H G ID <<< $slop
+
+echo "Recording... Press Ctrl+C to stop."
+ffmpeg           \
+  -v quiet       \
+  -f x11grab     \
+  -s "$W"x"$H"   \
+  -i :0.0+$X,$Y  \
+  "$FILENAME"
+
+echo "Done."
+echo "$FILENAME"
