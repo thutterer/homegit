@@ -3,8 +3,8 @@
 # Simple screen recorder.
 #
 # Requires:
-which ffmpeg || { echo "ffmpeg not found."; exit 1; }
-which slop || { echo "slop not found."; exit 1; }
+which ffmpeg > /dev/null || { echo "ffmpeg not found."; exit 1; }
+which slop > /dev/null || { echo "slop not found."; exit 1; }
 
 # Records MP4 by default.
 # Run `record gif` etc. for other formats.
@@ -14,7 +14,7 @@ FILENAME="$HOME/Videos/recording_$(date +%s).$FORMAT"
 
 
 echo "Select a window or area to record:"
-slop=$(slop -lf "%x %y %w %h %g %i") || exit 1
+slop=$(slop --highlight --format="%x %y %w %h %g %i" --color="0.4,0.4,0.8,0.4" --bordersize=4) || exit 1
 read -r X Y W H G ID <<< $slop
 
 echo "Recording... Press Ctrl+C to stop."
