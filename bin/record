@@ -8,14 +8,30 @@ which slop > /dev/null || { echo "slop not found."; exit 1; }
 
 # Records MP4 by default.
 # Run `record gif` etc. for other formats.
-
-[ -z "$1" ] && FORMAT="mp4" || FORMAT="$1"
+if [[ -z "$1" ]] || [[ $1 = -* ]]; then
+  FORMAT="mp4"
+else
+  FORMAT="$1"
+fi
 FILENAME="$HOME/Videos/recording_$(date +%s).$FORMAT"
 
+# Append the -r option to reuse the last slop dimensions.
+# Useful when recording before&after demos of the same area.
+SLOP_FILE="$HOME/.config/.record_slop"
+if [[ $1 == "-r" ]] || [[ $2 == "-r" ]]; then
+  if [[ -f "$SLOP_FILE" ]]; then
+    read -r X Y W H G ID < "$SLOP_FILE"  
+  else
+    echo "No previous dimensions found. Run without -r first."
+    exit 1
+  fi
+else
+  echo "Select a window or area to record:"
+  slop=$(slop --highlight --format="%x %y %w %h %g %i" --color="0.4,0.4,0.8,0.4" --bordersize=4) || exit 1
+  read -r X Y W H G ID <<< $slop
+  echo $slop > $SLOP_FILE
+fi
 
-echo "Select a window or area to record:"
-slop=$(slop --highlight --format="%x %y %w %h %g %i" --color="0.4,0.4,0.8,0.4" --bordersize=4) || exit 1
-read -r X Y W H G ID <<< $slop
 
 echo "Recording... Press Ctrl+C to stop."
 ffmpeg           \
