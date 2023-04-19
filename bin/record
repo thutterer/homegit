@@ -32,13 +32,27 @@ else
   echo $slop > $SLOP_FILE
 fi
 
+# Make sure height and width are even numbers.
+# This is required by the YUV420p format.
+if [ $((H%2)) -eq 1 ]
+then
+  echo "Height is odd. Removing one pixel."
+  H="$((H-1))"
+fi
+
+if [ $((W%2)) -eq 1 ]
+then
+  echo "Width is odd. Removing one pixel."
+  W="$((W-1))"
+fi
 
 echo "Recording... Press Ctrl+C to stop."
-ffmpeg           \
-  -v quiet       \
-  -f x11grab     \
-  -s "$W"x"$H"   \
-  -i :0.0+$X,$Y  \
+ffmpeg             \
+  -v quiet         \
+  -f x11grab       \
+  -s "$W"x"$H"     \
+  -i :0.0+$X,$Y    \
+  -pix_fmt yuv420p \
   "$FILENAME"
 
 echo "Done."
