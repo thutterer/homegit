@@ -12,12 +12,14 @@
   st = status --short
   lg = log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
   ls = !git --no-pager log --oneline master..HEAD
+  paste = "xclip -o -sel clip | git apply"
   news = shortlog -n --after='2 weeks ago'
   cleanup = "!git branch --merged | egrep -v '(^\\*|master|dev)' | xargs -r git branch -d"
   branches = "!~/bin/git_branches"
 
 [push]
   default = current
+  autoSetupRemote = true
 
 [pull]
   default = current
@@ -33,3 +35,6 @@
 
 [rebase]
   autoStash = true
+
+[init]
+  defaultBranch = main
