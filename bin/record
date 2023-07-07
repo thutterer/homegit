@@ -20,7 +20,7 @@ FILENAME="$HOME/Videos/recording_$(date +%s).$FORMAT"
 SLOP_FILE="$HOME/.config/.record_slop"
 if [[ $1 == "-r" ]] || [[ $2 == "-r" ]]; then
   if [[ -f "$SLOP_FILE" ]]; then
-    read -r X Y W H G ID < "$SLOP_FILE"  
+    read -r X Y W H G ID < "$SLOP_FILE"
   else
     echo "No previous dimensions found. Run without -r first."
     exit 1
@@ -45,6 +45,12 @@ then
   echo "Width is odd. Removing one pixel."
   W="$((W-1))"
 fi
+
+for value in {3..1}
+do
+  echo -n "$value "
+  sleep 1
+done
 
 echo "Recording... Press Ctrl+C to stop."
 ffmpeg             \
