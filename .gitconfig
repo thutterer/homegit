@@ -2,7 +2,7 @@
   pager = less
 
 [alias]
-  br = branch
+  br = branch --show-current
   ci = commit
   co = checkout
   cp = cherry-pick
@@ -38,3 +38,6 @@
 
 [init]
   defaultBranch = main
+
+[advice]
+  detachedHead = false
