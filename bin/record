@@ -46,18 +46,40 @@ then
   W="$((W-1))"
 fi
 
+# Ask for audio
+# Records with Pulseaudio's default input source
+echo "Record audio [y/N]: "
+read AUDIO
+
+AUDIO_PART=""
+if [[ "$AUDIO" == "y" ]] || [[ "$AUDIO" == "Y" ]]; then
+  AUDIO_PART="-f pulse -ac 2 -i default"
+fi
+
+# Ask for camera
+echo "Record camera [y/N]: "
+read CAMERA
+
+CAMERA_PART=""
+if [[ "$CAMERA" == "y" ]] || [[ "$CAMERA" == "Y" ]]; then
+  # FIXME: Hardcoded video id
+  CAMERA_PART="-f v4l2 -video_size 320x180 -framerate 30 -i /dev/video4 -filter_complex overlay=main_w-overlay_w:main_h-overlay_h"
+fi
+
+# Countdown!
 for value in {3..1}
 do
   echo -n "$value "
   sleep 1
 done
 
-echo "Recording... Press Ctrl+C to stop."
+echo "Recording... Press q to stop."
 ffmpeg             \
-  -v quiet         \
   -f x11grab       \
   -s "$W"x"$H"     \
   -i :0.0+$X,$Y    \
+  $CAMERA_PART     \
+  $AUDIO_PART      \
   -pix_fmt yuv420p \
   "$FILENAME"
 
