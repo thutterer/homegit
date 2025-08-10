@@ -18,7 +18,10 @@ set wildmode=longest:full,full
 set ruler
 
 " Display line numbers relative to current line
-set relativenumber
+" set relativenumber
+
+" Or, display normal line numbers
+set number
 
 set noswapfile
 set nobackup
@@ -100,26 +103,37 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+
 " Enable plugins
 call plug#begin()
-Plug 'noahfrederick/vim-noctu'
+Plug 'morhetz/gruvbox'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-vinegar'
+Plug 'jiangmiao/auto-pairs'
+Plug 'pangloss/vim-javascript'
+Plug 'mhinz/vim-startify'
 call plug#end()
 
 " Set color scheme (from plugin) and background
-colorscheme noctu
-"set background=dark
+colorscheme gruvbox
+set background=dark
 
 " Fuzzy find with fzf
 nnoremap <C-p> :Files<CR>
 
+" Use startify as 'New tab'
+nnoremap <C-t> :tabnew<CR>:Startify<CR>
+let g:startify_custom_header = []
+
 " Set <space> as leader key
-"let mapleader = " "
+let mapleader = " "
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>c :Commands<CR>
 
 " Folding (`za`)
+set foldcolumn=1
 set foldmethod=syntax
 set foldlevel=10
 set foldtext=getline(v:foldstart)
