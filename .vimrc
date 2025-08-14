@@ -1,6 +1,3 @@
-" enter the current millenium
-set nocompatible
-
 " enable syntax and plugins (for netrw)
 syntax enable
 filetype plugin on
@@ -16,6 +13,16 @@ set wildmode=longest:full,full
 
 " Always show current position
 set ruler
+
+" Faster update time for cursor hold events, etc.
+set updatetime=300
+
+" Use system clipboard for copy/paste
+" 'unnamed' for default register, 'unnamedplus' for system clipboard
+set clipboard=unnamedplus
+
+" Auto-insert comment leader when opening new line in comment
+set formatoptions+=o
 
 " Display line numbers relative to current line
 " set relativenumber
@@ -92,10 +99,6 @@ map <C-l> <C-W>l
 set splitright
 set splitbelow
 
-" Disable modeline completly for security reasons
-set modelines=0
-set nomodeline
-
 " Install plugin manager if missing
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -106,7 +109,6 @@ endif
 
 " Enable plugins
 call plug#begin()
-Plug 'morhetz/gruvbox'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -117,8 +119,12 @@ Plug 'mhinz/vim-startify'
 call plug#end()
 
 " Set color scheme (from plugin) and background
-colorscheme gruvbox
-set background=dark
+if (has("termguicolors"))
+  set termguicolors
+endif
+colorscheme habamax
+" set background=dark
+let g:lightline = { 'colorscheme': 'one' }
 
 " Fuzzy find with fzf
 nnoremap <C-p> :Files<CR>
@@ -138,3 +144,6 @@ set foldmethod=syntax
 set foldlevel=10
 set foldtext=getline(v:foldstart)
 set fillchars= 
+
+" Do not wrap long lines
+set nowrap
