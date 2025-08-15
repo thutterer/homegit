@@ -1,3 +1,9 @@
+" Ensure clientserver feature is available (most modern Vims have this)
+if !has('clientserver')
+  echomsg "Vim was not compiled with +clientserver. Remote commands will not work."
+  finish
+endif
+
 " enable syntax and plugins (for netrw)
 syntax enable
 filetype plugin on
@@ -112,6 +118,7 @@ call plug#begin()
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-vinegar'
 Plug 'jiangmiao/auto-pairs'
 Plug 'pangloss/vim-javascript'
